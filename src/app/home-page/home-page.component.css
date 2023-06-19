@@ -2,9 +2,30 @@
     width: 40vw;
     margin: auto;
     min-width: 500px;
+
+    > ul{
+        padding:0;
+    }
     
     .add-new-habit-btn{
         display: block;
         margin: auto;
+    }
+
+    .dates-div{
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1rem;
+        padding-right: 1.5rem;
+        margin-left: auto;
+
+        .date{
+            > div{
+                text-align: center;
+                font-size: 1.15em;
+                font-weight: bold;
+            }
+        }
     }
 }

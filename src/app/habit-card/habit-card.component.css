@@ -1,4 +1,38 @@
 mat-card{
     background-color: white;
     margin-bottom: 1rem;
+
+    > mat-card-content{
+        display: flex;
+    
+    }
+
+    .title-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+.history-div{
+    width: 50%;
+    display: flex;
+    margin-left: auto;
+    justify-content: space-between;
+    padding: 1rem;
+
+}
+
+.history-item-value mat-icon{
+    cursor: pointer;
+}
+
+.history-item-value .missed mat-icon:hover{
+    color: #ff6961;
+}
+
+.history-item-value .done mat-icon:hover{
+    color: #a6eca8;
 }

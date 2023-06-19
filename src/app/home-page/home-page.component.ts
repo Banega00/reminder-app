@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewHabitDialogComponent } from './add-new-habit-dialog/add-new-habit-dialog.component';
 import { HabitModel } from '../models/habit.model';
+import * as moment from 'moment';
+import { HabitHistoryStatus } from '../models/habit-history.model';
 
 @Component({
   selector: 'app-home-page',
@@ -9,22 +11,30 @@ import { HabitModel } from '../models/habit.model';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  public dates: moment.Moment[];
   public habits: HabitModel[] = [
     {
       id: 1,
       title: 'This is my first habit',
       description: '',
-      measurementType: 'NUMERIC',
+      measurementType: 'YES_NO',
       goal: 10,
       unit: 'minutes',
       habitColor: 'green',
-      history: [],
+      history: [
+        {date: new Date('2023-06-15'), value: 0, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
+        {date: new Date('2023-06-16'), value: 0, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
+        {date: new Date('2023-06-17'), value: 1, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
+        {date: new Date('2023-06-18'), value: 0, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
+      ],
       dateCreated: new Date()
     }
   ]
 
   constructor(public addNewHabitDialog: MatDialog) {
-    
+    this.dates = [0,1,2,3,4].map(number =>{
+      return moment().subtract(number, 'days');
+    })
   }
 
   openAddNewHabitDialog(): void {

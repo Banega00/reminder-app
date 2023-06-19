@@ -10,6 +10,7 @@ import { MaterialModule } from './material/material.module';
 import { HabitCardComponent } from './habit-card/habit-card.component';
 import { AddNewHabitDialogComponent } from './home-page/add-new-habit-dialog/add-new-habit-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import * as moment from 'moment';
 
 @NgModule({
   declarations: [

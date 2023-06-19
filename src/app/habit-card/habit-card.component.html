@@ -1,8 +1,23 @@
 <mat-card >
     <mat-card-content class="mat-elevation-z4">
-        <p>{{habit.title}}</p>
-        <p>{{habit.description}}</p>
+        <div class="title-div">
+            <p>{{habit.title}}</p>
+            <p>{{habit.description}}</p>
+        </div>
 
         
+        <div class="history-div">
+            <div class="history-item" *ngFor="let historyItem of visibleHistory">
+                <div class="history-item-value">
+                    <div class="missed" *ngIf="habit.measurementType=='YES_NO' && historyItem.value==0">
+                        <mat-icon>close</mat-icon>
+                    </div>
+                    <div class="done" *ngIf="habit.measurementType=='YES_NO' && historyItem.value==1">
+                        <mat-icon>done</mat-icon>
+                    </div>
+                    <p *ngIf="habit.measurementType=='NUMERIC'">{{historyItem.value}}</p>
+                </div>
+            </div>
+        </div>
     </mat-card-content>
 </mat-card>
