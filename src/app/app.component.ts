@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'reminder-app';
+
+  private habits = [
+    {
+      id: 1,
+      text: 'This is my first habit'
+    }
+  ]
 }

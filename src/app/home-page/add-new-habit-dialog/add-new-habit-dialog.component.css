@@ -1,0 +1,12 @@
+mat-card{
+    background-color: white;
+    color: black;
+}
+
+mat-card *{
+    color: black;
+}
+
+mat-card-actions button{
+    color: black;
+}

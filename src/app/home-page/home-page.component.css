@@ -1,0 +1,10 @@
+.main-div{
+    width: 40vw;
+    margin: auto;
+    min-width: 500px;
+    
+    .add-new-habit-btn{
+        display: block;
+        margin: auto;
+    }
+}

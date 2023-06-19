@@ -1,0 +1,11 @@
+<div class="main-div">
+    <ul>
+        <app-habit-card *ngFor="let habit of habits" [habit]="habit"></app-habit-card>
+    </ul>
+    <hr>
+    <button class="add-new-habit-btn" (click)="openAddNewHabitDialog()" mat-raised-button color="primary">
+        <mat-icon>add</mat-icon>
+        Add new Habit
+    </button>
+</div>
+
