@@ -1,12 +1,31 @@
 mat-card{
     background-color: white;
-    color: black;
 }
 
-mat-card *{
-    color: black;
+mat-divider{
+    margin-bottom: 1rem;
 }
 
-mat-card-actions button{
-    color: black;
+mat-form-field{
+    width: 30rem;
 }
+
+.color-picker{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5px;
+}
+
+.color-picker-div{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    color: rgb(81, 81, 81);
+
+    .color-picker{
+        transform: translateY(-0.2rem);
+        margin-left: 1rem;
+        cursor: pointer;
+    }
+  }
+
+  

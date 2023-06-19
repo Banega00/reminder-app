@@ -3,15 +3,60 @@
         <mat-card-title>Create a new Habit</mat-card-title>
         <mat-card-subtitle>Please fill in the form below</mat-card-subtitle>
     </mat-card-header>
+    
+    <mat-divider></mat-divider>
     <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
+        <form [formGroup]="newHabitForm">
+
+
+            <!-- Habit Name -->
+            <mat-form-field  appearance="fill">
+                <mat-label>Give your habit a title</mat-label>
+                <input formControlName="title" [(ngModel)]="newHabit.title" matInput placeholder="My awesome Habit!">
+            </mat-form-field>
+    
+            <br>
+    
+            <!-- Habit description -->
+            <mat-form-field appearance="fill">
+                <mat-label>Give your habit a description</mat-label>
+                <input formControlName="description" [(ngModel)]="newHabit.description" matInput placeholder="My awesome Habit!">
+            </mat-form-field>
+    
+            <br>
+    
+            <!-- Measurement Type -->
+            <mat-form-field>
+                <mat-label>Select a type of measurement for your habit</mat-label>
+                <mat-select formControlName="measurementType" [(ngModel)]="newHabit.measurementType">
+                    <mat-option *ngFor="let measurementType of habitMeasurementOptions | keyvalue" value="{{measurementType.key}}">
+                        {{measurementType.value.display}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <br>
+            <!-- Goal -->
+    
+            <mat-form-field *ngIf="newHabit?.measurementType == 'NUMERIC'" appearance="fill">
+                <mat-label>Goal</mat-label>
+                <input formControlName="goal" [(ngModel)]="newHabit.goal" matInput type="number" placeholder="E.g. 200">
+            </mat-form-field>
+    
+            <!-- Reminders -->
+            
+            <!-- Color -->
+            <div class="color-picker-div">
+                Choose yours habit color
+                <input formControlName="habitColor" class="color-picker"
+            [(colorPicker)]="newHabit.habitColor" 
+            [style.background]="newHabit.habitColor">    
+            </div>
+        </form>
+            
       </mat-card-content>
     <mat-card-actions align="end">
-        <button mat-button>Save</button>
-        <button mat-button>Discard</button>
+        <button mat-button (click)="saveNewHabit()" [disabled]="!newHabitForm.valid"><mat-icon>save</mat-icon>Save</button>
+        <button mat-button (click)="closeDialog()"><mat-icon>delete</mat-icon>Discard</button>
     </mat-card-actions>
 </mat-card>

@@ -34,9 +34,15 @@ export class HomePageComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      const newHabit = result;
+
+      if(!result?.save) return;
+
+      const newHabit = result.newHabit;
+
+      console.log("Dialog result received", newHabit);
 
       //ADD NEW HABIT
+
     });
   }
 }
