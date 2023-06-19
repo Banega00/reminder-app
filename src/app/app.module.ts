@@ -11,6 +11,7 @@ import { HabitCardComponent } from './habit-card/habit-card.component';
 import { AddNewHabitDialogComponent } from './home-page/add-new-habit-dialog/add-new-habit-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import * as moment from 'moment';
+import { MarkHabitDialogComponent } from './mark-habit-dialog/mark-habit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import * as moment from 'moment';
     HabitPageComponent,
     HomePageComponent,
     HabitCardComponent,
-    AddNewHabitDialogComponent
+    AddNewHabitDialogComponent,
+    MarkHabitDialogComponent
   ],
   imports: [
     BrowserModule,
