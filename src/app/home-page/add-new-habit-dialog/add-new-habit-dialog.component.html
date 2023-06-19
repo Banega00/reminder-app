@@ -42,6 +42,13 @@
                 <mat-label>Goal</mat-label>
                 <input formControlName="goal" [(ngModel)]="newHabit.goal" matInput type="number" placeholder="E.g. 200">
             </mat-form-field>
+
+            <br>
+
+            <mat-form-field *ngIf="newHabit?.measurementType == 'NUMERIC'" appearance="fill">
+                <mat-label>Unit</mat-label>
+                <input formControlName="unit" [(ngModel)]="newHabit.unit" matInput placeholder="Unit (e.g. minutes)">
+            </mat-form-field>
     
             <!-- Reminders -->
             

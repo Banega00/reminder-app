@@ -22,13 +22,15 @@ export class AddNewHabitDialogComponent {
       description: new FormControl(this.newHabit.description),
       measurementType: new FormControl(this.newHabit.measurementType,Validators.required),
       goal: new FormControl(this.newHabit.goal),
+      unit: new FormControl(this.newHabit.unit),
       habitColor: new FormControl(this.newHabit.habitColor)
     });
 
-    this.newHabitForm.get('goal')?.addValidators([this.goalRequiredIfNumericMeasurementValidator(this.newHabitForm)])
+    this.newHabitForm.get('goal')?.addValidators([this.requiredIfNumericMeasurementValidator(this.newHabitForm)])
+    this.newHabitForm.get('unit')?.addValidators([this.requiredIfNumericMeasurementValidator(this.newHabitForm)])
   }
 
-  public goalRequiredIfNumericMeasurementValidator(form: FormGroup): ValidatorFn {
+  public requiredIfNumericMeasurementValidator(form: FormGroup): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const needRequire = form.get('measurementType')?.value == 'NUMERIC';
       const noValue = needRequire ? !(control.value) : false

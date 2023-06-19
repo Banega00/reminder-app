@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewHabitDialogComponent } from './add-new-habit-dialog/add-new-habit-dialog.component';
+import { HabitModel } from '../models/habit.model';
 
 @Component({
   selector: 'app-home-page',
@@ -8,18 +9,17 @@ import { AddNewHabitDialogComponent } from './add-new-habit-dialog/add-new-habit
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
-  public habits = [
+  public habits: HabitModel[] = [
     {
       id: 1,
-      text: 'This is my first habit'
-    },
-    {
-      id: 2,
-      text: 'This is my second habit'
-    },
-    {
-      id: 3,
-      text: 'This is my third habit'
+      title: 'This is my first habit',
+      description: '',
+      measurementType: 'NUMERIC',
+      goal: 10,
+      unit: 'minutes',
+      habitColor: 'green',
+      history: [],
+      dateCreated: new Date()
     }
   ]
 
@@ -39,7 +39,7 @@ export class HomePageComponent {
 
       const newHabit = result.newHabit;
 
-      console.log("Dialog result received", newHabit);
+      this.habits.push(newHabit);
 
       //ADD NEW HABIT
 

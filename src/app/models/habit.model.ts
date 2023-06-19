@@ -20,7 +20,9 @@ export class HabitModel{
 
     public measurementType: keyof typeof HabitMeasurementOptions;
 
-    public goal: number;//if yes/no, goal is 1
+    public goal?: number;//if yes/no, goal is 1
+
+    public unit?: string;
 
     public dateCreated: Date;
 
@@ -33,6 +35,7 @@ export class HabitModel{
         obj?.title && (this.title = obj.title);
         obj?.description && (this.description = obj.description);
         obj?.measurementType && (this.measurementType = obj.measurementType);
+        obj?.unit && (this.unit = obj.unit);
         obj?.goal && (this.goal = obj.goal);
         obj?.dateCreated && (this.dateCreated = obj.dateCreated);
         obj?.history && (this.history = obj.history);
