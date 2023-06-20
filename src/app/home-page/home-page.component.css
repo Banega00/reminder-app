@@ -13,16 +13,17 @@
     }
 
     .dates-div{
-        width: 50%;
+        width: 20vw;
+        min-width: 300px;
         display: flex;
         justify-content: space-between;
         padding-top: 1rem;
-        padding-right: 1.5rem;
         margin-left: auto;
 
         .date{
+            width: 100%;
+            text-align: center;
             > div{
-                text-align: center;
                 font-size: 1.15em;
                 font-weight: bold;
             }

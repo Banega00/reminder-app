@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HabitModel } from '../models/habit.model';
 import * as moment from 'moment';
 import { HabitHistoryStatus } from '../models/habit-history.model';
-
+import { MarkHabitDialogComponent } from '../mark-habit-dialog/mark-habit-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-habit-card',
   templateUrl: './habit-card.component.html',
@@ -14,7 +16,7 @@ export class HabitCardComponent implements OnInit{
 
   public visibleHistory: HabitModel['history'];
 
-  constructor() { 
+  constructor(public markHabitDialog: MatDialog, private router: Router) { 
   }
 
   ngOnInit(): void {
@@ -37,5 +39,19 @@ export class HabitCardComponent implements OnInit{
         })
       }
     }
+  }
+
+  openHabitPage(){
+    this.router.navigate([`/habit/${this.habit.id}`], {state: {habit: this.habit}});
+  }
+
+  public markHistoryItem(historyItem: HabitModel['history'][0]){
+    const dialogRef = this.markHabitDialog.open(MarkHabitDialogComponent, {
+      data: {habit: this.habit, historyItem},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 }

@@ -9,6 +9,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -23,6 +25,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     MatInputModule,
     MatDividerModule,
     ColorPickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports:[
     MatButtonModule,
@@ -34,6 +38,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     MatInputModule,
     MatDividerModule,
     ColorPickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

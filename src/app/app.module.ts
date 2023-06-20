@@ -10,8 +10,14 @@ import { MaterialModule } from './material/material.module';
 import { HabitCardComponent } from './habit-card/habit-card.component';
 import { AddNewHabitDialogComponent } from './home-page/add-new-habit-dialog/add-new-habit-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import * as moment from 'moment';
 import { MarkHabitDialogComponent } from './mark-habit-dialog/mark-habit-dialog.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import * as moment from 'moment';
+
+export function momentAdapterFactory() {
+  return adapterFactory(moment);
+};
 
 @NgModule({
   declarations: [
@@ -28,7 +34,8 @@ import { MarkHabitDialogComponent } from './mark-habit-dialog/mark-habit-dialog.
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]

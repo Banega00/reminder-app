@@ -1,0 +1,7 @@
+.inline-calendar-card{
+    width: 30vw;
+}
+
+.mat-calendar-body-cell.green{
+    background-color: #4caf50 !important;
+}

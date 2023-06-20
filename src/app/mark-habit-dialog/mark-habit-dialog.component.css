@@ -1,0 +1,37 @@
+.main-dialog-div{
+    padding: 2rem;
+}
+
+.close-dialog-btn{
+    width: 100%;
+    min-width: 100px;
+}
+
+.missed, .done{
+    text-align: center;
+    padding: 2rem;
+    cursor: pointer;
+    margin-top: 2rem 1rem 0rem;
+
+    :hover{
+        background-color: #f5f5f5;
+    }
+
+    & mat-icon{
+        transform: scale(4);
+    }
+}
+
+.missed mat-icon{
+    color: #ff6961;
+}
+
+.done mat-icon{
+    color: #a6eca8;
+}
+
+.date-div{
+    width: fit-content;
+    padding: 1rem 0rem;
+    margin-bottom: 1rem;
+}

@@ -4,7 +4,6 @@ import { AddNewHabitDialogComponent } from './add-new-habit-dialog/add-new-habit
 import { HabitModel } from '../models/habit.model';
 import * as moment from 'moment';
 import { HabitHistoryStatus } from '../models/habit-history.model';
-
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -36,6 +35,8 @@ export class HomePageComponent {
       return moment().subtract(number, 'days');
     })
   }
+
+
 
   openAddNewHabitDialog(): void {
     const dialogRef = this.addNewHabitDialog.open(AddNewHabitDialogComponent, {

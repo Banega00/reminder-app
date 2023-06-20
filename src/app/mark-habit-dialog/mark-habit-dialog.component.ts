@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { HabitModel } from '../models/habit.model';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AddNewHabitDialogComponent } from '../home-page/add-new-habit-dialog/add-new-habit-dialog.component';
 
 @Component({
@@ -9,17 +9,21 @@ import { AddNewHabitDialogComponent } from '../home-page/add-new-habit-dialog/ad
   styleUrls: ['./mark-habit-dialog.component.css']
 })
 export class MarkHabitDialogComponent {
+  public habit: HabitModel;
+  public historyItem: HabitModel['history'][0];
 
-  @Input() habit: HabitModel;
-
-  constructor(private dialogRef: MatDialogRef<MarkHabitDialogComponent>) {
+  constructor(
+    private dialogRef: MatDialogRef<MarkHabitDialogComponent>, 
+    @Inject(MAT_DIALOG_DATA) public data: {habit: HabitModel, historyItem: HabitModel['history'][0]}) {
+      this.habit = data.habit;
+      this.historyItem = data.historyItem;
   }
 
   closeDialog() {
-    this.dialogRef.close({ save: false });
+    this.dialogRef.close();
   }
 
-  saveHabitHistory() {
-    // this.dialogRef.close({ save: true, newHabit: this.newHabit })
+  changeYesNoValue(value: 0 | 1){
+    this.historyItem.value = value;
   }
 }
