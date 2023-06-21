@@ -22,6 +22,7 @@ export class HomePageComponent {
       unit: 'minutes',
       habitColor: 'green',
       history: [
+        {date: new Date('2023-05-15'), value: 11, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
         {date: new Date('2023-06-15'), value: 11, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
         {date: new Date('2023-06-16'), value: 20, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
         {date: new Date('2023-06-17'), value: 9, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},

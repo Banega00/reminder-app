@@ -5,7 +5,7 @@
     <div>Habit for today {{selectedHistoryItem.value}}</div>
     <div>Percentage of goal {{selectedHistoryItem.percentageOfGoal}} %</div>
     <mat-card class="inline-calendar-card">
-        <mat-calendar (selectedChange)="monthSelected($event)" (selectedChange)="selectedDateChange($event)" [maxDate]="today" [(selected)]="selectedDate" [dateClass]="dateClass()">
+        <mat-calendar [maxDate]="today" [(selected)]="selectedDate" [dateClass]="dateClass()">
 
         </mat-calendar>
     </mat-card>

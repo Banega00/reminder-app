@@ -10,7 +10,7 @@ import { HabitHistoryStatus } from '../models/habit-history.model';
   templateUrl: './habit-page.component.html',
   styleUrls: ['./habit-page.component.css']
 })
-export class HabitPageComponent implements OnInit{
+export class HabitPageComponent{
   public habit:HabitModel;
   private listeners: (() => void)[] = [];
 
@@ -32,64 +32,31 @@ export class HabitPageComponent implements OnInit{
 
   dateClass() {
     return (date: Date): MatCalendarCellCssClasses => {
-      const dayMonth = date.getDate() + (date.getMonth() + 1);
-      
-      return `date${dayMonth}`;
-    }
-  }
-
-  selectedDateChange(date: Date | null){
-    const historyItem = this.habit.history.find((historyItem, index) => {
-      return moment(date).isSame(historyItem.date, 'day');
-    })
-
-    if(historyItem){
-      this.selectedHistoryItem = historyItem;
-      this.selectedHistoryItemIndex = this.habit.history.indexOf(historyItem);
-    }else{
-      this.selectedHistoryItem = {
-        date: date!,
-        value: 0,
-        percentageOfGoal: 0,
-        status: HabitHistoryStatus.UNSUCCESSFUL
-      }
-    }
-  }
-
-  ngOnInit() {
-    setTimeout(() => {
-
       for (let historyItem of this.habit.history) {
-        const dayMonth = historyItem.date.getDate() + (historyItem.date.getMonth() + 1);
-        const el = document.querySelector(`.date${dayMonth}`);
+        if (moment(historyItem.date).isSame(date, 'day')) {
 
-        el?.setAttribute('value', historyItem.value.toString());
-
-        // el.add
-
-        if (this.habit.measurementType == 'NUMERIC') {
-          if (historyItem.value > this.habit.goal!) {
-            this.renderer.addClass(el, 'green');
-          } else {
-            this.renderer.addClass(el, 'red');
-          }
-        }else if(this.habit.measurementType == 'YES_NO'){
-          if(historyItem.value == 1){
-            this.renderer.addClass(el, 'green');
-          }else{
-            this.renderer.addClass(el, 'red');
+          if (this.habit.measurementType == 'NUMERIC') {
+            if (historyItem.value > this.habit.goal!) {
+              return `green`;
+            } else {
+              return `red`;
+            }
+          } else if (this.habit.measurementType == 'YES_NO') {
+            if (historyItem.value == 1) {
+              return `green`;
+            } else {
+              return `red`;
+            }
           }
         }
       }
-    },0)
-
+      
+      return '';
+    }
   }
 
   formatDate(date: Date, format?: string){
     return moment(date).format(format ?? 'MMMM Do YYYY');
   }
 
-  monthSelected(_: any){
-    console.log('aaa')
-  }
 }
