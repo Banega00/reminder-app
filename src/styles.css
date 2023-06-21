@@ -19,3 +19,15 @@ mat-card{
         background-color: black !important;
     }
 }
+
+.mat-calendar-body-cell.red{
+    .mat-calendar-body-cell-content{
+
+        background-color: #f44336 !important;
+        color: white;
+    }
+
+    .mat-calendar-body-cell-content:hover{
+        background-color: black !important;
+    }
+}

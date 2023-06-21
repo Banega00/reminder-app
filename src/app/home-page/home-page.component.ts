@@ -4,6 +4,7 @@ import { AddNewHabitDialogComponent } from './add-new-habit-dialog/add-new-habit
 import { HabitModel } from '../models/habit.model';
 import * as moment from 'moment';
 import { HabitHistoryStatus } from '../models/habit-history.model';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -16,15 +17,15 @@ export class HomePageComponent {
       id: 1,
       title: 'This is my first habit',
       description: '',
-      measurementType: 'YES_NO',
+      measurementType: 'NUMERIC',
       goal: 10,
       unit: 'minutes',
       habitColor: 'green',
       history: [
-        {date: new Date('2023-06-15'), value: 0, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
-        {date: new Date('2023-06-16'), value: 0, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
-        {date: new Date('2023-06-17'), value: 1, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
-        {date: new Date('2023-06-18'), value: 0, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
+        {date: new Date('2023-06-15'), value: 11, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
+        {date: new Date('2023-06-16'), value: 20, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
+        {date: new Date('2023-06-17'), value: 9, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
+        {date: new Date('2023-06-18'), value: 14, percentageOfGoal: 50, status: HabitHistoryStatus.SUCCESSFUL},
       ],
       dateCreated: new Date()
     }
