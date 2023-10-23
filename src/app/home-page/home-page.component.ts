@@ -32,6 +32,7 @@ export class HomePageComponent {
     }
   ]
 
+
   constructor(public addNewHabitDialog: MatDialog) {
     this.dates = [0,1,2,3,4].map(number =>{
       return moment().subtract(number, 'days');
